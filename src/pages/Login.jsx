@@ -11,7 +11,7 @@ function LoginForm() {
         <form className='needs-validation'>
 
         <div className='form-group was-validated mb-2'>
-            <label htmlFor='email' className='form_label'> Email address</label>
+            <label htmlFor='email' className='form-label'> Email address</label>
             <input type="email" className='form-control' required></input>
             <div className="invalid-feedback">
                 Please Enter your Email
@@ -19,7 +19,7 @@ function LoginForm() {
 
         </div>
         <div className='form-group mb-2'>
-            <label htmlFor='password' className='form_label'> Password</label>
+            <label htmlFor='password' className='form-label'> Password</label>
             <input type="password" className='form-control' required ></input>
             <div className="invalid-feedback">
                 Please Enter your password
