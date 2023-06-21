@@ -1,9 +1,11 @@
-import Button from 'react-bootstrap/Button';
-import ButtonComponent from './components/ButtonComponent';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavComponent from './components/NavComponent';
+
 function App() {
 
   return (
     <div>
+      <NavComponent/>
     </div>
   )
 }
