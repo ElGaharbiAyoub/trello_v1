@@ -1,10 +1,16 @@
 import Button from 'react-bootstrap/Button';
-import ButtonComponent from './components/ButtonComponent';
+import LoginForm from './pages/Login';
+import Signup from './pages/Signup';
 function App() {
 
   return (
     <div>
+     
+    
     </div>
+
+    
+
   )
 }
 
