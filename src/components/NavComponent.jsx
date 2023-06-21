@@ -7,6 +7,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import logo from '../assets/logo.png';
 import '../styles/nav.css';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 
 function NavComponent() {
@@ -18,8 +19,12 @@ function NavComponent() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
           <Nav>
-            <Button href="#" variant="outline-light" className="btn_connexion">Connexion <FontAwesomeIcon icon={faArrowAltCircleRight} /></Button>
-            <Button href="#" variant="outline-info">Inscription <FontAwesomeIcon icon={faUser} /></Button>
+          <Link to="/login" >
+            <Button variant="outline-light" className="btn_connexion">Connexion <FontAwesomeIcon icon={faArrowAltCircleRight} /></Button>
+          </Link>
+          <Link to="/signup">
+            <Button variant="outline-info">Inscription <FontAwesomeIcon icon={faUser} /></Button>
+          </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
