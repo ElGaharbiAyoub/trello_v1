@@ -1,6 +1,10 @@
+
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import api from "./api/users"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavComponent from './components/NavComponent';
+
 
 function App() {
 
@@ -25,6 +29,7 @@ function App() {
 
   return (
     <div>
+      <NavComponent/>
     </div>
   )
 }
