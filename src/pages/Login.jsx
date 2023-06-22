@@ -47,7 +47,7 @@ function Login() {
                 {...register("email", {
                   required: "Required",
                   pattern: {
-                    value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                    value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
                     message: "Invalid email",
                   },
                 })}
