@@ -1,21 +1,23 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "ayoub",
+      "id": 2,
+      "name": "anass",
       "email": "ayoub@gmail.com",
       "password": "123456789"
     },
     {
-      "id": 1,
-      "name": "ayoub",
+      "id": 6,
+      "name": "anaa",
       "email": "ayoub@gmail.com",
-      "password": "123456789"
+      "password": "rrrrrrrrrrr"
     }
   ],
-  "notes": [
+  "tasks": [
     {
-        "name": "ssss"
+      "title": "create component",
+      "discription": "svknsdknv",
+      "resposable": 2
     }
   ]
 }
