@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import { v4 as uuidv4 } from 'uuid';
 import api from "./api/users"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route   } from 'react-router-dom';
 
 
 import Home from "./pages/Home";
+import CarteComponent from './components/CarteComponent';
 
 
 function App() {
@@ -24,14 +25,27 @@ function App() {
     });
     setUsers(newUsersList);
   }
+  // Function Get
+  
+  useEffect(() => {
+    const getUsers = async () => {
+      const response = await api.get("/users");
+      console.log(response.data)
+      setUsers([...response.data]);
+  };
+    getUsers();
+}, []);
+console.log(users)
 
+
+  
   return (
     <div style={{height: "100vh"}}>
     <Router>
       <NavComponent/>
       <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<LoginForm />} />
       <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
