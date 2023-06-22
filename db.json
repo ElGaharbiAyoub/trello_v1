@@ -11,11 +11,29 @@
       "name": "ayoub",
       "email": "ayoub@gmail.com",
       "password": "123456789"
+    },
+    {
+      "id": 99,
+      "name": "ziyad",
+      "email": "ziyad@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": 98,
+      "name": "elaouzi",
+      "email": "elaouzi@gmail.com",
+      "password": "987654321"
+    },
+    {
+      "id": 97,
+      "name": "assaad",
+      "email": "assaad@gmail.com",
+      "password": "123456789"
     }
   ],
   "notes": [
     {
-        "name": "ssss"
+      "name": "ssss"
     }
   ]
 }

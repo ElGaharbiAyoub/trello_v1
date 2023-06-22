@@ -1,6 +1,15 @@
 import '../styles/forms.css'
 
 function LoginForm() {
+    const addUserHandler = async (user)=> {
+        const request = {
+            id: uuidv4(),
+            ...user
+        }
+        const response = await api.post("/users", request)
+        setUsers([...users, response.data])
+    }
+
   return (
     <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100'>
     <div className='login'>

@@ -14,15 +14,6 @@ function App() {
 
   const [users, setUsers] = useState([]);
 
-  const addUserHandler = async (user)=> {
-    const request = {
-      id: uuidv4(),
-      ...user
-    }
-    const response = await api.post("/users", request)
-    setUsers([...users, response.data])
-  }
-
   const deleteUserHandler = async (id)=> {
     await api.delete(`/users/${id}`);
     const newUsersList = users.filter((user)=>{
