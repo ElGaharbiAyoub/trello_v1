@@ -15,6 +15,8 @@ function LoginForm() {
         const response = await api.post("/users", request)
         setUsers([...users, response.data])
     }
+}
+
 function Login() {
   const {
     register,

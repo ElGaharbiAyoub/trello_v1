@@ -37,8 +37,6 @@ function App() {
     </Router>
     </div>
 
-    
-
   )
 }
 
