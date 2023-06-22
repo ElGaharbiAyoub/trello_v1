@@ -6,6 +6,17 @@ import '../styles/forms.css'
 import Form from 'react-bootstrap/Form';
 import '../styles/forms.css'
 
+function LoginForm() {
+    const addUserHandler = async (user)=> {
+        const request = {
+            id: uuidv4(),
+            ...user
+        }
+        const response = await api.post("/users", request)
+        setUsers([...users, response.data])
+    }
+}
+
 function Login() {
   const {
     register,
