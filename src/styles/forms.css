@@ -21,3 +21,13 @@
     background-color: rgb(228, 234, 238);
 
 }
+
+.Create{
+    width:500px;
+    padding: 20px;
+    height:min-content;
+    border-radius: 5px;
+    color:black;
+    background-color: rgb(228, 234, 238);
+
+}

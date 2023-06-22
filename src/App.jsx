@@ -1,6 +1,4 @@
 import Button from 'react-bootstrap/Button';
-import LoginForm from './pages/Login';
-import Signup from './pages/Signup';
 
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
@@ -11,11 +9,12 @@ import { BrowserRouter as Router, Routes, Route   } from 'react-router-dom';
 import LoginForm from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-
+import Creation from './pages/creation';
 
 function App() {
 
   const [users, setUsers] = useState([]);
+  console.log(uuidv4);
 
   const addUserHandler = async (user)=> {
     const request = {
@@ -42,8 +41,11 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/create" element={<Creation/>} />
       </Routes>
     </Router>
+
+    
     </div>
 
     
