@@ -1,15 +1,16 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "ayoub",
+      "id": 2,
+      "name": "anass",
       "email": "ayoub@gmail.com",
       "password": "123456789"
     },
     {
-      "id": 1,
-      "name": "ayoub",
+      "id": 6,
+      "name": "anaa",
       "email": "ayoub@gmail.com",
+<<<<<<< HEAD
       "password": "123456789"
     },
     {
@@ -29,11 +30,20 @@
       "name": "assaad",
       "email": "assaad@gmail.com",
       "password": "123456789"
+=======
+      "password": "rrrrrrrrrrr"
+>>>>>>> ebf3a50ac21d437a38c13196c743195c55bf493b
     }
   ],
-  "notes": [
+  "tasks": [
     {
+<<<<<<< HEAD
       "name": "ssss"
+=======
+      "title": "create component",
+      "discription": "svknsdknv",
+      "resposable": 2
+>>>>>>> ebf3a50ac21d437a38c13196c743195c55bf493b
     }
   ]
 }
