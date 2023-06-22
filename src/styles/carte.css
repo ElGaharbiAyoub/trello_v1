@@ -1,0 +1,24 @@
+.carteWrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+.carte{
+    background: #fac3d1;
+    border: 1px solid gray;
+}
+.carte .enteteCarte{
+height: 30px;
+width: 100%;
+background: linear-gradient(to right,#fff,transparent);
+margin: 5px;
+}
+.carte .userName{
+    font-size: 12px;
+}
+.carte button{
+    margin-right: 10px;
+}
+.carte .description{
+    border-radius: 10px;
+    padding: 5px;
+}

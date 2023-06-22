@@ -6,7 +6,16 @@ import '../styles/forms.css'
 import Form from 'react-bootstrap/Form';
 import '../styles/forms.css'
 
-function Login() {
+function Login({users}) {
+    const addUserHandler = async (user)=> {
+        const request = {
+            id: uuidv4(),
+            ...user
+        }
+        const response = await api.post("/users", request)
+        setUsers([...users, response.data])
+    }
+
   const {
     register,
     handleSubmit,
@@ -36,7 +45,7 @@ function Login() {
                 {...register("email", {
                   required: "Required",
                   pattern: {
-                    value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                    value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
                     message: "Invalid email",
                   },
                 })}

@@ -1,6 +1,4 @@
 .homepage {
-    background-image: url("../assets/homeImg.jpg");
-    height: 86%;
-    background-position: center;
-    background-size: cover;
+    display: flex;
+    flex-wrap: wrap;
 }

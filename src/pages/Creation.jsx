@@ -3,7 +3,7 @@ import '../styles/forms.css'
 import Form from 'react-bootstrap/Form';
 import '../styles/forms.css'
 
-function Creation() {
+function Creation({users}) {
 
     return (
         <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100'>
@@ -14,18 +14,21 @@ function Creation() {
 
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Title</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title"></input>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" required></input>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
                     </div>
 
 
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">choose a colaborateur</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select class="form-control" id="exampleFormControlSelect1" required>
                             <option></option>
+                            {users.map((user)=>(
+                                 <option key={user.id} value={user.id}>{user.name}</option>
+                            ))}
 
                         </select>
 
@@ -34,7 +37,7 @@ function Creation() {
 
 
 
-                    <button type='submit' className='btn btn-info w-100 block mt-2' disabled>create task</button>
+                    <button type='submit' className='btn btn-info w-100 block mt-2'>create task</button>
                 </form>
             </div>
         </div>
