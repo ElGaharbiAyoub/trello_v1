@@ -21,7 +21,7 @@ const Home = ({users, setUsers}) => {
 
   return (
     <div
-     className="homepage" 
+    //  className="homepage" 
      >
           {tasks.map((task)=>(
             <CarteComponent task={task} users={users}/>
