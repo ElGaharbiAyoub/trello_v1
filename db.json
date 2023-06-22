@@ -2,20 +2,36 @@
   "users": [
     {
       "id": 1,
+      "name": "Salma",
+      "email": "salma@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": 2,
       "name": "ayoub",
       "email": "ayoub@gmail.com",
       "password": "123456789"
     },
     {
-      "id": 1,
-      "name": "ayoub",
-      "email": "ayoub@gmail.com",
+      "id": 3,
+      "name": "Hasnae",
+      "email": "hasnae@gmail.com",
       "password": "123456789"
     }
   ],
-  "notes": [
+  "tasks": [
     {
-        "name": "ssss"
-    }
+        "title": "Math",
+        "discription": "effvdfdfvdfgbfgbdgb",
+        "responsable": 2
+    },{
+      "title": "arabe",
+      "discription": "rgezgsdfgesetsf",
+      "responsable": 1
+  },{
+    "title": "SVT",
+    "discription": "rgezgsdfgesetsf",
+    "responsable": 3
+  }
   ]
 }
