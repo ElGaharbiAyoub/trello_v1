@@ -41,6 +41,18 @@ console.log(users)
   
   return (
     <div style={{height: "100vh"}}>
+     {users.map((user) => (
+        <div key={user.id}>
+          <span>{user.name}</span>
+          <Button variant="danger" onClick={() => deleteUserHandler(user.id)}>
+            Delete
+          </Button>
+        </div>
+      ))}
+
+
+
+
     <Router>
       <NavComponent/>
       <Routes>
