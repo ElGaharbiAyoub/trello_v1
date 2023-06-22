@@ -12,5 +12,10 @@
       "email": "ayoub@gmail.com",
       "password": "123456789"
     }
+  ],
+  "notes": [
+    {
+        "name": "ssss"
+    }
   ]
 }
