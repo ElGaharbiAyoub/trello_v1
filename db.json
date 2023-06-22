@@ -17,21 +17,46 @@
       "name": "Hasnae",
       "email": "hasnae@gmail.com",
       "password": "123456789"
+    },
+    {
+      "id": 99,
+      "name": "ziyad",
+      "email": "ziyad@gmail.com",
+      "password": "123456789"
+    },
+    {
+      "id": 98,
+      "name": "elaouzi",
+      "email": "elaouzi@gmail.com",
+      "password": "987654321"
+    },
+    {
+      "id": 97,
+      "name": "assaad",
+      "email": "assaad@gmail.com",
+      "password": "123456789"
     }
   ],
   "tasks": [
     {
-        "title": "Math",
-        "discription": "effvdfdfvdfgbfgbdgb",
-        "responsable": 2
-    },{
+      "title": "Math",
+      "discription": "effvdfdfvdfgbfgbdgb",
+      "responsable": 2
+    },
+    {
       "title": "arabe",
       "discription": "rgezgsdfgesetsf",
       "responsable": 1
-  },{
-    "title": "SVT",
-    "discription": "rgezgsdfgesetsf",
-    "responsable": 3
-  }
+    },
+    {
+      "title": "SVT",
+      "discription": "rgezgsdfgesetsf",
+      "responsable": 3
+    },
+{
+      "title": "create component",
+      "discription": "svknsdknv",
+      "resposable": 2
+    }
   ]
 }
