@@ -23,7 +23,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="homepage">
+    <div className="homepage container">
       {tasks.map((task) => (
         <CarteComponent key={task.id} task={task} users={users} />
       ))}
