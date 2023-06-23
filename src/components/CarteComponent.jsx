@@ -17,7 +17,7 @@ function CarteComponent({ task, users }) {
   const userName = filterUser.length > 0 ? filterUser[0].name : '';
 
   return (
-    <Card style={{ width: '18rem' }} className='carte text-center m-5'>
+    <Card style={{ width: '18rem' }} className='carte text-center m-3'>
       <div className='enteteCarte'></div>
       {userName && (
         <span className='text-start userName fw-bold p-1'>

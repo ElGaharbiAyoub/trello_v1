@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/home.css";
 import api from "../api/users";
-
 import CarteComponent from "../components/CarteComponent";
 
 const Home = () => {
@@ -24,7 +23,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="homepage">
       {tasks.map((task) => (
         <CarteComponent key={task.id} task={task} users={users} />
       ))}
