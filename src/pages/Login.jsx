@@ -25,17 +25,22 @@ function Login({users}) {
   } = useForm();
 
   const onSubmit = (data) => {
-    const response = axios.get(`http://[::1]:3002/users/?email='${data.email}&password=${data.password}`);
+    const response = axios.get(`http://[::1]:3002/users/?email='${data.email}&password=${data.password}`)
+      .then(response => {
+        const responseData = response.data;
+        // compare user's input with retrieved data
+        if ( responseData.email == data.email && responseData.password == data.password ) {
+          alert('Welcome ' + response.data.name);
+        } else {
+          alert('Access denied, please try again.');
+        }
+      })
+      .catch(error => {
+        console.log('Error occurred:', error.message);
+    });
 
-    if (!response) {
-      alert("Your credentials are incorrect, please try again later.");
-    } else {
-      // i have to retrieve response data (id, name, email, password) 
-      // so that i can compare it with the input of the user from the login form in order to either grant him access or deny him
-      // and to store the data locally in order to be used in following CRUD tasks 
-    }
+    // store the data locally in order to be used later in following CRUD tasks 
 
-    alert(JSON.stringify(data, null, 2));
   };
 
   return (
