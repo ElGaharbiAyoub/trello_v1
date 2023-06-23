@@ -56,12 +56,14 @@ console.log(users)
 
     <Router>
       <NavComponent/>
+      
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login users={users} />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/create" element={<Creation users={users}/>} />
       </Routes>
+     
     </Router>
 
     
