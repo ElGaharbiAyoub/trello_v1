@@ -67,7 +67,14 @@
         "email": "salma@gmail.com",
         "password": "123456789"
       }
-    ]
+    ],
+    {
+      "id": "a88bd22e-e250-4803-b2c0-6ba04afc0e2e",
+      "name": "hamza",
+      "email": "hamza@test.com",
+      "password": "hamza123",
+      "confirmPassword": "hamza123"
+    }
   ],
   "tasks": [
     {

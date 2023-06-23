@@ -3,7 +3,6 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 import { useState,useEffect } from "react"
-import { v4 as uuidv4 } from 'uuid';
 import api from "./api/users"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavComponent from './components/NavComponent';
@@ -12,12 +11,13 @@ import { BrowserRouter as Router, Routes, Route   } from 'react-router-dom';
 
 import Home from "./pages/Home";
 import Creation from './pages/creation';
-import CarteComponent from './components/CarteComponent';
 
 
 function App() {
 
   const [users, setUsers] = useState([]);
+  const [isAuth, setIsAuth] = useState(false);
+  const [userAuth, setUserAuth] = useState("");
 
   const deleteUserHandler = async (id)=> {
     await api.delete(`/users/${id}`);
@@ -54,12 +54,12 @@ function App() {
 
 
     <Router>
-      <NavComponent/>
+      <NavComponent isAuth={isAuth} userAuth={userAuth}/>
       
       <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login users={users} />} />
-      <Route path="/signup" element={<Signup />} />
+      <Route path="/" element={<Home  />} />
+      <Route path="/login" element={<Login users={users} setUserAuth={setUserAuth} setIsAuth={setIsAuth} />} />
+      <Route path="/signup" element={<Signup users={users} setUsers= {setUsers} />} />
       <Route path="/create" element={<Creation users={users}/>} />
       </Routes>
      
