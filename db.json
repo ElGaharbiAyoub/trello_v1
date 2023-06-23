@@ -13,7 +13,30 @@
       "password": "123456789"
     },
     {
-      "id": 3,
+      "id": 2,
+      "name": "lamyae",
+      "email": "lamyaesarhrani@gmail.com",
+      "password": "rrrrrrrrrrr"
+    },
+    {
+      "id": 2,
+      "name": "ziyad",
+      "email": "ziyad@gmail.com",
+      "password": "rrrrrrrrrrr"
+    },
+    {
+      "id": 2,
+      "name": "hasnae",
+      "email": "hasnae@gmail.com",
+      "password": "rrrrrrrrrrr"
+    },
+    {
+      "id": 2,
+      "name": "farah",
+      "email": "farah@gmail.com",
+      "password": "rrrrrrrrrrr"
+    },
+{      "id": 3,
       "name": "Hasnae",
       "email": "hasnae@gmail.com",
       "password": "123456789"

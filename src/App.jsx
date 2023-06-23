@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route   } from 'react-router-dom';
 
 
 import Home from "./pages/Home";
+import Creation from './pages/creation';
 import CarteComponent from './components/CarteComponent';
 
 
@@ -41,14 +42,14 @@ console.log(users)
   
   return (
     <div style={{height: "100vh"}}>
-     {users.map((user) => (
+     {/* {users.map((user) => (
         <div key={user.id}>
           <span>{user.name}</span>
           <Button variant="danger" onClick={() => deleteUserHandler(user.id)}>
             Delete
           </Button>
         </div>
-      ))}
+      ))} */}
 
 
 
@@ -57,10 +58,13 @@ console.log(users)
       <NavComponent/>
       <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<LoginForm />} />
+      <Route path="/login" element={<Login users={users} />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/create" element={<Creation users={users}/>} />
       </Routes>
     </Router>
+
+    
     </div>
 
   )

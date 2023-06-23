@@ -8,7 +8,7 @@ import '../styles/forms.css'
 import { useState } from "react";
 import axios from "axios";
 
-function LoginForm() {
+function Login({users}) {
     const addUserHandler = async (user)=> {
         const request = {
             id: uuidv4(),
@@ -17,9 +17,7 @@ function LoginForm() {
         const response = await api.post("/users", request)
         setUsers([...users, response.data])
     }
-}
 
-function Login() {
   const {
     register,
     handleSubmit,

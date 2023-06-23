@@ -24,7 +24,7 @@ const Home = ({users, setUsers}) => {
     //  className="homepage" 
      >
           {tasks.map((task)=>(
-            <CarteComponent task={task} users={users}/>
+            <CarteComponent key={task.id} task={task} users={users}/>
             // <h1>jjjjj</h1>
           ))}
 
