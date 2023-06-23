@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import '../styles/forms.css'
 import Form from 'react-bootstrap/Form';
 import '../styles/forms.css'
+import { useState } from "react";
+import axios from "axios";
 
 function Login({users}) {
     const addUserHandler = async (user)=> {
@@ -23,6 +25,16 @@ function Login({users}) {
   } = useForm();
 
   const onSubmit = (data) => {
+    const response = axios.get(`http://[::1]:3002/users/?email='${data.email}&password=${data.password}`);
+
+    if (!response) {
+      alert("Your credentials are incorrect, please try again later.");
+    } else {
+      // i have to retrieve response data (id, name, email, password) 
+      // so that i can compare it with the input of the user from the login form in order to either grant him access or deny him
+      // and to store the data locally in order to be used in following CRUD tasks 
+    }
+
     alert(JSON.stringify(data, null, 2));
   };
 
