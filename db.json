@@ -60,16 +60,6 @@
       "email": "assaad@gmail.com",
       "password": "123456789"
     },
-    [
-      {
-        "id": 11,
-        "name": "Salma",
-        "email": "salma@gmail.com",
-        "password": "123456789"
-      }
-    ]
-  ],
-  "tasks": [
     {
       "title": "Math",
       "discription": "effvdfdfvdfgbfgbdgb",
@@ -106,12 +96,8 @@
       "title": "cour react",
       "description": "kgkugiugsd",
       "responsable": 8
-    },
-    {
-      "id": "c82fd106-0386-4d0f-a4c8-c772e82ca043",
-      "title": "aaaaaa",
-      "discription": "svsdfbdgbsg",
-      "responsable": 5
     }
-  ]
+ 
+  ],
+  "tasks": []
 }

@@ -1,21 +1,38 @@
 import { useForm } from "react-hook-form";
+import { v4 as uuidv4 } from 'uuid';
+import api from "../api/users"
 
 // import Button from 'react-bootstrap/Button';
 import '../styles/forms.css'
 // import Form from 'react-bootstrap/Form';
 
 import '../styles/forms.css'
+import { useNavigate } from "react-router-dom";
 
-function Signup() {
+function Signup({users, setUsers}) {
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
   } = useForm();
+  const navigate = useNavigate();
+  const onSubmit = async (data) => {
 
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data, null, 2));
+    try {
+      const request = {
+        id: uuidv4(),
+        ...data
+      };
+      const response = await api.post("/users", request);
+      setUsers(...users, response.data);
+      if (response) {
+        navigate('/login');
+        alert("good");
+      }
+    } catch (error) {
+      alert("nooop try again !!" + error);
+    }
   };
 
   const password = watch("password");

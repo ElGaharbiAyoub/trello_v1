@@ -1,43 +1,46 @@
 
 import { useForm } from "react-hook-form";
 
-import Button from 'react-bootstrap/Button';
 import '../styles/forms.css'
-import Form from 'react-bootstrap/Form';
 import '../styles/forms.css'
-import { useState } from "react";
+import api from "../api/users";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Login({users}) {
-    const addUserHandler = async (user)=> {
-        const request = {
-            id: uuidv4(),
-            ...user
-        }
-        const response = await api.post("/users", request)
-        setUsers([...users, response.data])
-    }
+function Login({setUserAuth, setIsAuth}) {
+    // const addUserHandler = async (user)=> {
+    //     const request = {
+    //         id: uuidv4(),
+    //         ...user
+    //     }
+    //     const response = await api.post("/users", request)
+    //     setUsers([...users, response.data])
+    // }
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    const response = axios.get(`http://[::1]:3002/users/?email='${data.email}&password=${data.password}`)
-      .then(response => {
+  const onSubmit = async (data) => {
+      const response = await axios.get(`http://[::1]:3002/users/?password=${data.password}&email=${data.email}`)
         const responseData = response.data;
         // compare user's input with retrieved data
-        if ( responseData.email == data.email && responseData.password == data.password ) {
-          alert('Welcome ' + response.data.name);
+        if (responseData) {
+          console.log(responseData)
+          navigate("/");
+          setIsAuth(true);
+          setUserAuth(data.name)
+          alert('Welcome ' + data.name);
         } else {
           alert('Access denied, please try again.');
         }
-      })
-      .catch(error => {
-        console.log('Error occurred:', error.message);
-    });
+      
+    //   .catch(error => {
+    //     console.log('Error occurred:', error.message);
+    // });
 
     // store the data locally in order to be used later in following CRUD tasks 
 
