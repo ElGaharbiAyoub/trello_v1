@@ -36,7 +36,6 @@ function App() {
   };
     getUsers();
 }, []);
-console.log(users)
 
 
   
