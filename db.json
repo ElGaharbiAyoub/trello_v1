@@ -76,31 +76,5 @@
       "confirmPassword": "hamza123"
     }
   ],
-  "tasks": [
-    {
-      "title": "Math",
-      "discription": "effvdfdfvdfgbfgbdgb",
-      "responsable": 2
-    },
-    {
-      "title": "arabe",
-      "discription": "rgezgsdfgesetsf",
-      "responsable": 5
-    },
-    {
-      "title": "SVT",
-      "discription": "rgezgsdfgesetsf",
-      "responsable": 1
-    },
-    {
-      "title": "create component",
-      "discription": "svknsdknv",
-      "resposable": 6
-    },
-    {
-      "title": "create Taches",
-      "discription": "svknsdknv",
-      "resposable": 9
-    }
-  ]
+  "tasks": []
 }
