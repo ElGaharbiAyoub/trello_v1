@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import '../styles/forms.css'
 import Form from 'react-bootstrap/Form';
 import '../styles/forms.css'
+import { useState } from "react";
+import axios from "axios";
 
 function Login({users}) {
     const addUserHandler = async (user)=> {
@@ -23,7 +25,22 @@ function Login({users}) {
   } = useForm();
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data, null, 2));
+    const response = axios.get(`http://[::1]:3002/users/?email='${data.email}&password=${data.password}`)
+      .then(response => {
+        const responseData = response.data;
+        // compare user's input with retrieved data
+        if ( responseData.email == data.email && responseData.password == data.password ) {
+          alert('Welcome ' + response.data.name);
+        } else {
+          alert('Access denied, please try again.');
+        }
+      })
+      .catch(error => {
+        console.log('Error occurred:', error.message);
+    });
+
+    // store the data locally in order to be used later in following CRUD tasks 
+
   };
 
   return (

@@ -3,33 +3,33 @@ import "../styles/home.css";
 import api from "../api/users";
 
 import CarteComponent from "../components/CarteComponent";
-const Home = ({users, setUsers}) => {
 
+const Home = () => {
   const [tasks, setTasks] = useState([]);
+  const [users, setUsers] = useState([]);
 
-    // Function Get
-    console.log(users)
-    useEffect(() => {
+  useEffect(() => {
     const getTasks = async () => {
       const response = await api.get("/tasks");
-      setTasks([...response.data]);
-  };
+      setTasks(response.data);
+    };
+
+    const getUsers = async () => {
+      const response = await api.get("/users");
+      setUsers(response.data);
+    };
+
     getTasks();
+    getUsers();
   }, []);
-  console.log(tasks)
-  
 
   return (
-    <div
-    //  className="homepage" 
-     >
-          {tasks.map((task)=>(
-            <CarteComponent key={task.id} task={task} users={users}/>
-            // <h1>jjjjj</h1>
-          ))}
-
+    <div>
+      {tasks.map((task) => (
+        <CarteComponent key={task.id} task={task} users={users} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
