@@ -5,6 +5,7 @@ import api from "../api/users";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "../styles/carte.css";
 import {
   faTrashAlt,
   faEdit,
@@ -12,6 +13,7 @@ import {
   faUser,
 } from "@fortawesome/free-regular-svg-icons";
 import "../styles/carte.css";
+import Modal from "react-bootstrap/Modal";
 
 function CarteComponent({ task, users, setTasks }) {
   const filterUser = users.filter((user) => {
@@ -25,112 +27,167 @@ function CarteComponent({ task, users, setTasks }) {
   const [updatedDescription, setUpdatedDescription] = useState(
     task.discription
   );
+  const [showModal, setShowModal] = useState(false);
+  const [comment, setComment] = useState("");
 
-  const navigate = useNavigate();
-  
+  // const navigate = useNavigate();
 
   const handleDelete = async () => {
-    if (confirm("Press a button!\nEither OK or Cancel.")== true)
-    {
-        try {
-          await api.delete(`/tasks/${task.id}`);
-        } catch (error) {
-          console.error("Error deleting task:", error);
-        }
-
-      }        
+    if (confirm("Press a button!\nEither OK or Cancel.") == true) {
+      try {
+        await api.delete(`/tasks/${task.id}`);
+      } catch (error) {
+        console.error("Error deleting task:", error);
+      }
+    }
   };
 
-  const handleUpdate =  () => {
+  const handleUpdate = () => {
     setIsEditing(!isEditing);
   };
 
-
-  const submit = async ()=>{
+  const submit = async () => {
     try {
-      await api.put(`/tasks/${task.id}`, {
-        id: task.id,
-        title: updatedTitle,
-        description: updatedDescription,
-      }).then((resp)=>{
-        setIsEditing(!isEditing);
+      await api
+        .put(`/tasks/${task.id}`, {
+          id: task.id,
+          title: updatedTitle,
+          discription: updatedDescription,
+        })
+        .then((resp) => {
+          setIsEditing(!isEditing);
           console.log(resp);
-      });
+        });
       // onUpdate(updatedTitle, updatedDescription);
     } catch (error) {
       console.error("Error updating task:", error);
     }
-  }
+  };
 
+const handleModalOpen = () => {
+  setShowModal(true);
+};
 
+const handleModalClose = () => {
+  setShowModal(false);
+  setComment("");
+};
 
-  return (
-    <Card style={{ width: "18rem" }} className="carte text-center m-5">
-      <div className="enteteCarte"></div>
-      {userName && (
-        <span className="text-start userName fw-bold p-1">
-          <FontAwesomeIcon icon={faUser} /> {userName}
-        </span>
+const handleCommentChange = (event) => {
+  setComment(event.target.value);
+};
+const handleCommentSubmit = (comment) => {
+  // Faites ce que vous souhaitez avec le commentaire, par exemple, enregistrez-le dans une base de données
+    // onCommentSubmit(comment);
+  // Réinitialisez la valeur du commentaire
+  setComment("");
+};
+
+return (
+  <Card style={{ width: "18rem" }} className="carte text-center m-5">
+    <div className="enteteCarte"></div>
+    {userName && (
+      <span className="text-start userName fw-bold p-1">
+        <FontAwesomeIcon icon={faUser} /> {userName}
+      </span>
+    )}
+    <Card.Body>
+      {isEditing ? (
+        <>
+          <input
+            type="text"
+            className="form-control mb-2"
+            value={updatedTitle}
+            onChange={(e) => setUpdatedTitle(e.target.value)}
+          />
+          <textarea
+            className="form-control mb-2"
+            rows="3"
+            value={updatedDescription}
+            onChange={(e) => setUpdatedDescription(e.target.value)}
+          ></textarea>
+          <Button
+            variant="outline-primary"
+            className="btn-sm mx-1"
+            onClick={submit}
+          >
+            Sub
+          </Button>
+          <Button
+            variant="outline-primary"
+            className="btn-sm mx-1"
+            onClick={handleUpdate}
+          >
+            Cancel
+          </Button>
+        </>
+      ) : (
+        <>
+          <Card.Title className="title">{task.title}</Card.Title>
+          <Card.Text className="description">{task.discription}</Card.Text>
+          <Button
+            href="#"
+            variant="outline-success"
+            className="btn-sm mx-1"
+            onClick={handleModalOpen}
+          >
+            <FontAwesomeIcon icon={faEye} />
+          </Button>
+          <Button
+            href="#"
+            variant="outline-primary"
+            className="btn-sm mx-1"
+            onClick={handleUpdate}
+          >
+            <FontAwesomeIcon icon={faEdit} />
+          </Button>
+          <Button
+            href="#"
+            variant="outline-danger"
+            className="btn-sm mx-1"
+            onClick={handleDelete}
+          >
+            <FontAwesomeIcon icon={faTrashAlt} />
+          </Button>
+        </>
       )}
-      <Card.Body>
-        {isEditing ? (
-          <>
-            <input
-              type="text"
-              className="form-control mb-2"
-              value={updatedTitle}
-              onChange={(e) => setUpdatedTitle(e.target.value)}
-            />
-            <textarea
-              className="form-control mb-2"
-              rows="3"
-              value={updatedDescription}
-              onChange={(e) => setUpdatedDescription(e.target.value)}
-            ></textarea>
-            <Button
-              variant="outline-primary"
-              className="btn-sm mx-1"
-              onClick={submit}
-            >
-              Sub
-            </Button>
-            <Button
-              variant="outline-primary"
-              className="btn-sm mx-1"
-              onClick={handleUpdate}
-            >
-              Cancel
-            </Button>
+    </Card.Body>
 
-          </>
-        ) : (
-          <>
-            <Card.Title className="title">{task.title}</Card.Title>
-            <Card.Text className="description">{task.discription}</Card.Text>
-            <Button href="#" variant="outline-success" className="btn-sm mx-1">
-              <FontAwesomeIcon icon={faEye} />
-            </Button>
-            <Button
-              href="#"
-              variant="outline-primary"
-              className="btn-sm mx-1"
-              onClick={handleUpdate}
-            >
-              <FontAwesomeIcon icon={faEdit} />
-            </Button>
-            <Button
-              href="#"
-              variant="outline-danger"
-              className="btn-sm mx-1"
-              onClick={handleDelete}
-            >
-              <FontAwesomeIcon icon={faTrashAlt} />
-            </Button>
-          </>
-        )}
-      </Card.Body>
-    </Card>
-  );
+    {/* Fenêtre modale */}
+
+    <Modal show={showModal} onHide={handleModalClose} className="modals">
+      <Modal.Header closeButton className="text-light modalHeader">
+        <Modal.Title>User : {userName}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="modalBody">
+        <p>
+          <strong>Title :</strong> {task.title}{" "}
+        </p>
+        <p>
+          <strong>Description :</strong> {task.discription}
+        </p>
+      </Modal.Body>
+
+      <div className="modalfooter">
+        <div className="form-group">
+          <label htmlFor="commentInput ">
+            <strong>Ajouter un commentaire :</strong>
+          </label>
+          <input
+            type="text"
+            className="form-control my-3"
+            id="commentInput"
+            value={comment}
+            onChange={handleCommentChange}
+          />
+        </div>
+        <Button variant="dark" onClick={handleCommentSubmit}>
+          Envoyer
+        </Button>
+      </div>
+    </Modal>
+  </Card>
+);
 }
 
 export default CarteComponent;
