@@ -97,7 +97,23 @@
       "description": "kgkugiugsd",
       "responsable": 8
     }
- 
   ],
-  "tasks": []
+  "tasks": [
+    {
+      "title": "saliwa",
+      "description": "hello every body\n",
+      "id": "ec171f48-0d4a-49bd-a155-e934e6f57cc7"
+    },
+    {
+      "title": "heloo",
+      "description": "hi\n",
+      "id": "32a246a1-8cb0-4b4f-bbbb-3af69595047a"
+    },
+    {
+      "id": "16f10b24-8fe1-4c74-9fcd-57aa6e815292",
+      "title": "dfdsdfsd",
+      "discription": "fvdsg",
+      "responsable": 6
+    }
+  ]
 }
