@@ -18,7 +18,16 @@ margin: 5px;
 .carte button{
     margin-right: 10px;
 }
+.modals{
+    margin-top: 100px;
+}
 .carte .description{
     border-radius: 10px;
     padding: 5px;
+}
+.modalHeader{
+    background: linear-gradient(to right,#000,transparent);
+}
+.modalfooter{
+    padding: 20px;
 }

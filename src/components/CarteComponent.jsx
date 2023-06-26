@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt, faEdit, faEye, faUser } from '@fortawesome/free-regular-svg-icons';
 import '../styles/carte.css';
+import Modal from 'react-bootstrap/Modal';
 
 function CarteComponent({ task, users, onDelete, onUpdate }) {
   const filterUser = users.filter((user) => {
@@ -18,6 +19,8 @@ function CarteComponent({ task, users, onDelete, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedTitle, setUpdatedTitle] = useState(task.title);
   const [updatedDescription, setUpdatedDescription] = useState(task.description);
+  const [showModal, setShowModal] = useState(false);
+  const [comment, setComment] = useState("");
 
   const navigate = useNavigate();
 
@@ -32,7 +35,7 @@ function CarteComponent({ task, users, onDelete, onUpdate }) {
 
   const handleUpdate = async () => {
     setIsEditing(!isEditing);
-  
+
     if (!isEditing) {
       try {
         await api.put(`/tasks/${task.id}`, {
@@ -45,6 +48,28 @@ function CarteComponent({ task, users, onDelete, onUpdate }) {
       }
     }
   };
+
+
+  const handleModalOpen = () => {
+    setShowModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+    setComment("");
+  };
+
+
+  const handleCommentChange = (event) => {
+    setComment(event.target.value);
+  };
+  const handleCommentSubmit = (comment) => {
+    // Faites ce que vous souhaitez avec le commentaire, par exemple, enregistrez-le dans une base de données
+    onCommentSubmit(comment);
+    // Réinitialisez la valeur du commentaire
+    setComment("");
+  };
+
 
   return (
     <Card style={{ width: '18rem' }} className="carte text-center m-5">
@@ -76,7 +101,8 @@ function CarteComponent({ task, users, onDelete, onUpdate }) {
             <Card.Text className="description">{task.description}</Card.Text>
           </>
         )}
-        <Button href="#" variant="outline-success" className="btn-sm mx-1">
+        <Button href="#" variant="outline-success" className="btn-sm mx-1" onClick={handleModalOpen}
+        >
           <FontAwesomeIcon icon={faEye} />
         </Button>
         <Button
@@ -96,6 +122,30 @@ function CarteComponent({ task, users, onDelete, onUpdate }) {
           <FontAwesomeIcon icon={faTrashAlt} />
         </Button>
       </Card.Body>
+
+      {/* Fenêtre modale */}
+
+      <Modal show={showModal} onHide={handleModalClose} className='modals'>
+        <Modal.Header closeButton className='text-light modalHeader'>
+          <Modal.Title>User : {userName}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className='modalBody'>
+          <p><strong>Title :</strong> {task.title} </p>
+          <p><strong>Description :</strong> {task.discription}</p>
+
+        </Modal.Body>
+
+        <div className='modalfooter'>
+          <div className="form-group">
+            <label htmlFor="commentInput "><strong>Ajouter un commentaire :</strong></label>
+            <input type="text" className="form-control my-3" id="commentInput" value={comment} onChange={handleCommentChange} />
+          </div>
+          <Button variant="dark" onClick={handleCommentSubmit}>
+            Envoyer
+          </Button>
+        </div>
+      </Modal>
+
     </Card>
   );
 }
