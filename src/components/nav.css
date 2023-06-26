@@ -1,0 +1,24 @@
+.logo_img {
+    width: 100px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .navbar {
+    background-color: #333;
+  }
+  
+  .nav-link {
+    color: #fff;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .btn_connexion {
+    margin-right: 10px;
+  }
+  
+  .text-info {
+    margin-right: 10px;
+  }
+  

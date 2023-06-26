@@ -10,6 +10,8 @@ import { BrowserRouter as Router, Routes, Route   } from 'react-router-dom';
 
 import Home from "./pages/Home";
 import Creation from './pages/creation';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 
 function App() {
@@ -50,6 +52,8 @@ function App() {
       <Route path="/login" element={<Login users={users} setUserAuth={setUserAuth} setIsAuth={setIsAuth} />} />
       <Route path="/signup" element={<Signup users={users} setUsers= {setUsers} />} />
       <Route path="/create" element={<Creation users={users}/>} />
+      <Route path="/About" element={<About />} />
+      <Route path="/Contact" element={<Contact />}/>
       </Routes>
      
     </Router>
