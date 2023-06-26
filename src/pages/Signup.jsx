@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from 'uuid';
 import api from "../api/users"
+import "../styles/Layout.css";
+
 
 // import Button from 'react-bootstrap/Button';
 import '../styles/forms.css'
@@ -39,7 +41,7 @@ function Signup({users, setUsers}) {
   const confirmPassword = watch("confirmPassword");
 
   return (
-    <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100'>
+    <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100 layout-container'>
       <div className='sign'>
         <h2 className='mb-3'>Sign Up</h2>
         <div className="container">

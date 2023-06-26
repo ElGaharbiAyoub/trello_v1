@@ -1,0 +1,6 @@
+.layout-container {
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    height: 77vh;
+    /* Other styles for the container */
+  }

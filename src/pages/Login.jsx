@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 
 import '../styles/forms.css'
 import '../styles/forms.css'
+import "../styles/Layout.css";
+
 import api from "../api/users";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -47,7 +49,7 @@ function Login({setUserAuth, setIsAuth}) {
   };
 
   return (
-    <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100'>
+    <div className='wrapper bg-dark d-flex align-items-center justify-content-center w-100 layout-container'>
     <div className='login'>
 
     <h2 className='mb-3'>Login</h2>

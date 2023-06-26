@@ -6,12 +6,17 @@ import api from "./api/users"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavComponent from './components/NavComponent';
 import { BrowserRouter as Router, Routes, Route   } from 'react-router-dom';
+import Footer from './components/Footer';
 
 
 import Home from "./pages/Home";
 import Creation from './pages/creation';
+<<<<<<< Updated upstream
 import About from './pages/About';
 import Contact from './pages/Contact';
+=======
+import Layout from './components/Layout';
+>>>>>>> Stashed changes
 
 
 function App() {
@@ -47,6 +52,7 @@ function App() {
     <Router>
       <NavComponent isAuth={isAuth} userAuth={userAuth}/>
       
+    <Layout>
       <Routes>
       <Route path="/" element={<Home users={users} setUsers= {setUsers}/>} />
       <Route path="/login" element={<Login users={users} setUserAuth={setUserAuth} setIsAuth={setIsAuth} />} />
@@ -55,10 +61,13 @@ function App() {
       <Route path="/About" element={<About />} />
       <Route path="/Contact" element={<Contact />}/>
       </Routes>
-     
-    </Router>
 
-    
+
+     
+
+    </Layout>
+    <Footer/>
+    </Router>
     </div>
 
   )
