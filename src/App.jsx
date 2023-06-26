@@ -11,12 +11,9 @@ import Footer from './components/Footer';
 
 import Home from "./pages/Home";
 import Creation from './pages/creation';
-<<<<<<< Updated upstream
 import About from './pages/About';
 import Contact from './pages/Contact';
-=======
 import Layout from './components/Layout';
->>>>>>> Stashed changes
 
 
 function App() {
